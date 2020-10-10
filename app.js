@@ -28,14 +28,14 @@ var promise = new Promise(function(resolve, reject) {
 
 promise.then((value) => {
   console.log(value);
-  let upload = multer({
-    storage: multerS3({
-        s3: s3,
-        bucket: value.toString(),
-        key: function (req, file, cb) {
-            cb(null, file.originalname);
-        }
-    })
+  var upload = multer({
+  storage: multerS3({
+    s3: s3,
+    bucket: value,
+    key: function (req, file, cb) {
+    }
+  })
+})
 }).catch((error) => {
   console.error(error);
 });
