@@ -17,15 +17,26 @@ var app = express(),
 
 app.use(bodyParser.json());
 
-var upload = multer({
+var promise = new Promise(function(resolve, reject) { 
+  s3.listBuckets(function(err, data) {
+  if (err) console.log(err, err.stack); // an error occurred
+   else resolve(s3 = data.Buckets[0].Name);           // successful response
+  });
+}); 
+
+promise1.then((value) => {
+  let upload = multer({
     storage: multerS3({
         s3: s3,
-        bucket: 'fall2020-dpj',
+        bucket: value,
         key: function (req, file, cb) {
             cb(null, file.originalname);
         }
     })
 });
+});
+
+
 app.get('/', function (req, res) {
     res.sendFile(__dirname + '/index.html');
 });
