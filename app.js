@@ -34,6 +34,7 @@ promise.then((value) => {
   console.error(error);
 });
     
+console.log(d1);
 var upload = multer({
     storage: multerS3({
         s3: s3,
