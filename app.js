@@ -33,7 +33,9 @@ promise.then((value) => {
         key: function (req, file, cb) {
             cb(null, file.originalname);
         }
-    })
+    }).catch((error) => {
+  console.error(error);
+});
 }).catch((error) => {
   console.error(error);
 });
