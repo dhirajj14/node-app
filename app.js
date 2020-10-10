@@ -36,7 +36,7 @@ promise.then((value) => {
             cb(null, file.originalname);
             }
         })
-    })
+    });
 
     app.post('/upload', upload.array('uploadFile',1), function (req, res, next) {
         res.send("File uploaded successfully to Amazon S3 Server!");
