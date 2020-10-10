@@ -12,7 +12,7 @@ aws.config.update({
     region: 'us-east-1'
 });
 
-var app = express(),
+var app = express();
 let s3 = new aws.S3();
 
 app.use(bodyParser.json());
