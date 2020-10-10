@@ -28,14 +28,7 @@ var promise = new Promise(function(resolve, reject) {
 
 var d1 = "";
 promise.then((value) => {
-  console.log(value);
-    d1 = value;
-}).catch((error) => {
-  console.error(error);
-});
-    
-console.log(d1);
-var upload = multer({
+  var upload = multer({
     storage: multerS3({
         s3: s3,
         bucket: d1,
@@ -43,11 +36,16 @@ var upload = multer({
             cb(null, file.originalname);
             }
         })
-});
-
-app.post('/upload', upload.array('uploadFile',1), function (req, res, next) {
+    });
+    
+    app.post('/upload', upload.array('uploadFile',1), function (req, res, next) {
     res.send("File uploaded successfully to Amazon S3 Server!");
+    });
+    
+}).catch((error) => {
+  console.error(error);
 });
+    
 
 
 app.get('/', function (req, res) {
