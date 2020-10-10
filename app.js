@@ -26,8 +26,10 @@ var promise = new Promise(function(resolve, reject) {
   console.error(error);
 });
 
+var d1 = "";
 promise.then((value) => {
   console.log(value);
+    d1 = value;
 }).catch((error) => {
   console.error(error);
 });
@@ -35,7 +37,7 @@ promise.then((value) => {
 var upload = multer({
     storage: multerS3({
         s3: s3,
-        bucket: 'Your Amazon S3 Bucket Name',
+        bucket: d1,
         key: function (req, file, cb) {
             cb(null, file.originalname);
             }
