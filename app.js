@@ -7,8 +7,8 @@ var express = require('express'),
     multerS3 = require('multer-s3');
 
 aws.config.update({
-	accessKeyId: 'Your Amazon S3 Access Key',
-    secretAccessKey: 'Your Amazon S3 Secret Key',    
+// 	accessKeyId: 'Your Amazon S3 Access Key',
+//     secretAccessKey: 'Your Amazon S3 Secret Key',    
     region: 'us-east-1'
 });
 
@@ -20,7 +20,7 @@ app.use(bodyParser.json());
 var upload = multer({
     storage: multerS3({
         s3: s3,
-        bucket: 'Your Amazon S3 Bucket Name',
+        bucket: 'fall2020-dpj',
         key: function (req, file, cb) {
             cb(null, file.originalname);
         }
