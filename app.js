@@ -22,7 +22,7 @@ var promise = new Promise(function(resolve, reject) {
   if (err) console.log(err, err.stack); // an error occurred
    else resolve(s3 = data.Buckets[0].Name);           // successful response
   });
-}); 
+}).catch(alert); 
 
 promise.then((value) => {
   console.log(value);
@@ -33,9 +33,7 @@ promise.then((value) => {
         key: function (req, file, cb) {
             cb(null, file.originalname);
         }
-    }).catch((error) => {
-  console.error(error);
-});
+    })
 }).catch((error) => {
   console.error(error);
 });
