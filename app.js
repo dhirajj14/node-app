@@ -35,6 +35,9 @@ promise1.then((value) => {
         }
     })
 });
+    app.post('/upload', upload.array('uploadFile',1), function (req, res, next) {
+    res.send("File uploaded successfully to Amazon S3 Server!");
+    });
 });
 
 
@@ -42,9 +45,6 @@ app.get('/', function (req, res) {
     res.sendFile(__dirname + '/index.html');
 });
 
-app.post('/upload', upload.array('uploadFile',1), function (req, res, next) {
-    res.send("File uploaded successfully to Amazon S3 Server!");
-});
 
 app.listen(3300, function () {
     console.log('Amazon s3 file upload app listening on port 3300');
