@@ -22,7 +22,9 @@ var promise = new Promise(function(resolve, reject) {
   if (err) console.log(err, err.stack); // an error occurred
    else resolve(s3 = data.Buckets[0].Name);           // successful response
   });
-}).catch(alert); 
+}).catch((error) => {
+  console.error(error);
+});
 
 promise.then((value) => {
   console.log(value);
