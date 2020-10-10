@@ -42,8 +42,6 @@ promise.then((value) => {
     res.send("File uploaded successfully to Amazon S3 Server!");
     });
     
-}).catch((error) => {
-  console.error(error);
 });
     
 
