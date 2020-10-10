@@ -34,16 +34,18 @@ promise.then((value) => {
         bucket: 'Your Amazon S3 Bucket Name',
         key: function (req, file, cb) {
             cb(null, file.originalname);
-        }
+            }
+        })
     })
+
+    app.post('/upload', upload.array('uploadFile',1), function (req, res, next) {
+        res.send("File uploaded successfully to Amazon S3 Server!");
     });
 }).catch((error) => {
   console.error(error);
 });
-    app.post('/upload', upload.array('uploadFile',1), function (req, res, next) {
-    res.send("File uploaded successfully to Amazon S3 Server!");
-    });
-});
+    
+
 
 
 app.get('/', function (req, res) {
