@@ -25,6 +25,7 @@ var promise = new Promise(function(resolve, reject) {
 }); 
 
 promise1.then((value) => {
+  console.log(value);
   let upload = multer({
     storage: multerS3({
         s3: s3,
