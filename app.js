@@ -13,7 +13,7 @@ aws.config.update({
 });
 
 var app = express();
-let s3 = new aws.S3();
+var s3 = new aws.S3({ /* ... */ });
 
 app.use(bodyParser.json());
 
@@ -31,7 +31,7 @@ promise.then((value) => {
   let upload = multer({
     storage: multerS3({
         s3: s3,
-        bucket: value,
+        bucket: value.toString(),
         key: function (req, file, cb) {
             cb(null, file.originalname);
         }
