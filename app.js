@@ -24,7 +24,7 @@ var promise = new Promise(function(resolve, reject) {
   });
 }); 
 
-promise1.then((value) => {
+promise.then((value) => {
   console.log(value);
   let upload = multer({
     storage: multerS3({
@@ -34,6 +34,8 @@ promise1.then((value) => {
             cb(null, file.originalname);
         }
     })
+}).catch((error) => {
+  console.error(error);
 });
     app.post('/upload', upload.array('uploadFile',1), function (req, res, next) {
     res.send("File uploaded successfully to Amazon S3 Server!");
