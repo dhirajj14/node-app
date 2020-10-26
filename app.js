@@ -38,11 +38,12 @@ promise.then((value) => {
             }
         })
     });
-    
+    console.log(value);
     app.post('/upload', upload.array('uploadFile',1), function (req, res, next) {
     res.send("File uploaded successfully to Amazon S3 Server!");
     });
     
+
 }).catch((error) => {
   console.error(error);
 });
