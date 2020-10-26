@@ -13,7 +13,7 @@ aws.config.update({
 });
 
 var app = express();
-var s3 = new aws.S3({});
+var s3 = new aws.S3({""});
 
 app.use(bodyParser.json());
 
